@@ -1,7 +1,7 @@
 {
   "type": "renderer",
   "name": "Backend Renderer",
-  "id": "aocenas-render-plugin",
+  "id": "aocenas-image-renderer",
 
   "info": {
     "description": "Grafana Backend Image Renderer that uses headless chrome to capture images.",
