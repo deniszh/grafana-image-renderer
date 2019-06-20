@@ -68,13 +68,14 @@ export class Browser {
 
       await page.goto(options.url);
 
-      // wait for all panels to render
-      await page.waitForFunction(() => {
-        const panelCount = document.querySelectorAll('.panel').length;
-        return (<any>window).panelsRendered >= panelCount;
-      }, {
-        timeout: options.timeout * 1000
-      });
+      // ugly hack
+      //// wait for all panels to render
+      //await page.waitForFunction(() => {
+      //  const panelCount = document.querySelectorAll('.panel').length;
+      //  return (<any>window).panelsRendered >= panelCount;
+      //}, {
+      //  timeout: options.timeout * 1000
+      //});
 
       if (!options.filePath) {
         options.filePath = uniqueFilename(os.tmpdir()) + '.png';
