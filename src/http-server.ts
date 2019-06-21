@@ -45,6 +45,7 @@ export class HttpServer {
       domain: req.query.domain,
       timezone: req.query.timezone,
       encoding: req.query.encoding,
+      api_key: process.env.API_KEY || 'API KEY NOT DEFINED',
     };
     this.log.info(`render request recieved for ${options.url}`);
     let result = await this.browser.render(options);
