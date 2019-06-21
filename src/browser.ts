@@ -60,22 +60,13 @@ export class Browser {
         deviceScaleFactor: 1,
       });
 
-      await page.setCookie({
-        'name': 'renderKey',
-        'value': options.renderKey,
-        'domain': options.domain,
+      // replacing renderKey cookie with auth header
+      await page.setExtraHTTPHeaders({
+         'Authorization': 'Bearer ' + options.api_key,
       });
 
-      await page.goto(options.url);
-
-      // ugly hack
-      //// wait for all panels to render
-      //await page.waitForFunction(() => {
-      //  const panelCount = document.querySelectorAll('.panel').length;
-      //  return (<any>window).panelsRendered >= panelCount;
-      //}, {
-      //  timeout: options.timeout * 1000
-      //});
+      // replacing panel render loop with simple wait until network idle stanza
+      await page.goto(options.url, {waitUntil: 'networkidle0'});
 
       if (!options.filePath) {
         options.filePath = uniqueFilename(os.tmpdir()) + '.png';
