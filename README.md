@@ -33,4 +33,6 @@ cd docker
 docker-compose up
 ```
 
+Provide Grafana API key with "Viewer" level access to `API_KEY` environmant variable.
+
 
