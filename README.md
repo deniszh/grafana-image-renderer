@@ -1,6 +1,6 @@
 # Grafana Image Renderer
 
-A Grafana Backend Plugin that handles rendering panels &amp; dashboards to PNGs using headless chrome.
+A Grafana Backend Plugin that handles rendering panels &amp; dashboards to PNGs using headless chrome. Modified to use Grafana API key instead of session cookie (for run it separately). Also have some simplified renderer.
 
 # Dependencies
 
