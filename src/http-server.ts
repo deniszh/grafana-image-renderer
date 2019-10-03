@@ -47,7 +47,7 @@ export class HttpServer {
       encoding: req.query.encoding,
       api_key: process.env.API_KEY || 'API KEY NOT DEFINED',
     };
-    this.log.info(`render request recieved for ${options.url}`);
+    this.log.info(`render request received for ${options.url}`);
     let result = await this.browser.render(options);
 
     res.sendFile(result.filePath);

@@ -1,0 +1,11 @@
+.circleci
+artifacts
+build
+dist
+docker
+docs
+node_modules
+scripts
+Dockerfile
+Makefile
+plugin_start*

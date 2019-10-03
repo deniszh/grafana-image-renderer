@@ -16,6 +16,7 @@ tmp
 # Build
 dist
 build
+artifacts
 
 # API keys and secrets
 .env

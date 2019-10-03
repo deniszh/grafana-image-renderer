@@ -1,38 +1,57 @@
-# Grafana Image Renderer
+# Grafana Image Renderer [![CircleCI](https://circleci.com/gh/grafana/grafana-image-renderer.svg?style=svg)](https://circleci.com/gh/grafana/grafana-image-renderer)
 
-A Grafana Backend Plugin that handles rendering panels &amp; dashboards to PNGs using headless chrome. Modified to use Grafana API key instead of session cookie (for run it separately). Also have some simplified renderer.
+A Grafana backend plugin that handles rendering panels and dashboards to PNGs using headless Chrome.
 
-# Dependencies
-
-Nodejs v8+ installed. 
-
-# Installation 
-
-- git clone into Grafana external plugins folder. 
-- yarn install --pure-lockfile
-- yarn run build
-- restart grafana-server , it should log output that the renderer plugin was found and started. 
-- To get more logging info update grafana.ini section [log] , key filters = rendering:debug
-
-
-# Remote Rendering Docker image
-
-A dockerfile is provided for deploying the remote-image-renderer in a container.
-You can then configure your Grafana server to use the container via the 
-```
-[rendering]
-server_url=http://renderer:8081/render
-```
-config setting in grafana.ini
-
-A docker-compose example is provided in docker/
-to launch
-
-```
-cd docker
-docker-compose up
-```
+## Requirements
 
 Provide Grafana API key with "Viewer" level access to `API_KEY` environmant variable.
 
 
+### Supported operating systems
+
+- Linux (x64)
+- Windows (x64)
+- Mac OS X (x64)
+
+### No dependencies
+
+This plugin is packaged in a single executable with [Node.js](https://nodejs.org/) runtime and [Chromium](https://www.chromium.org/Home). It does not require any additional software to be installed on the Grafana server.
+
+## Installation
+
+### Using grafana-cli
+
+**NOTE:** Installing this plugin using grafana-cli is supported from Grafana v6.4.
+
+```
+grafana-cli plugins install grafana-image-renderer
+```
+
+### Clone into plugins folder
+
+1. Git clone this repo into the Grafana external plugins folder.
+2. Install dependencies and build.
+
+    ```
+    yarn install --pure-lockfile
+    yarn run build
+    ```
+
+3. Restart Grafana.
+
+## Remote Rendering Using Docker
+
+Instead of installing and running the image renderer as a plugin, you can run it as a remote image rendering service using Docker. Read more about [remote rendering using Docker](https://github.com/grafana/grafana-image-renderer/blob/master/docs/remote_rendering_using_docker.md).
+
+## Troubleshooting
+
+To get more logging information, update the Grafana configuration:
+
+```
+[log]
+filters = rendering:debug
+```
+
+## Additional information
+
+See [docs](https://github.com/grafana/grafana-image-renderer/blob/master/docs/index.md).
