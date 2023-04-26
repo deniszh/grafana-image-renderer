@@ -19,6 +19,7 @@ message RenderRequest {
   string timezone = 9;
   map<string, StringList> headers = 10;
   string authToken = 11;
+  string apiKey = 12;
 }
 
 message RenderResponse {
@@ -34,6 +35,7 @@ message RenderCSVRequest {
   string timezone = 6;
   map<string, StringList> headers = 7;
   string authToken = 8;
+  string apiKey = 9;
 }
 
 message RenderCSVResponse {

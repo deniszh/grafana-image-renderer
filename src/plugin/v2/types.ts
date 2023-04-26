@@ -18,6 +18,7 @@ export interface RenderRequest {
     [header: string]: StringList;
   };
   authToken: string;
+  apiKey: string;
 }
 
 export interface RenderResponse {
@@ -35,6 +36,7 @@ export interface RenderCSVRequest {
     [header: string]: StringList;
   };
   authToken: string;
+  apiKey: string;
 }
 
 export interface RenderCSVResponse {

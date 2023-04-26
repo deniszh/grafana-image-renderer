@@ -136,6 +136,7 @@ class PluginGRPCServer {
       timezone: req.timezone,
       deviceScaleFactor: req.deviceScaleFactor,
       headers: headers,
+      apiKey: req.apiKey,
     };
 
     this.log.debug('Render request received', 'url', options.url);
@@ -182,6 +183,7 @@ class PluginGRPCServer {
       domain: req.domain,
       timezone: req.timezone,
       headers: headers,
+      apiKey: req.apiKey,
     };
 
     this.log.debug('Render request received', 'url', options.url);

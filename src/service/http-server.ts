@@ -161,6 +161,7 @@ export class HttpServer {
       encoding: req.query.encoding,
       deviceScaleFactor: req.query.deviceScaleFactor,
       headers: headers,
+      apiKey: req.query.apiKey,
     };
 
     this.log.debug('Render request received', 'url', options.url);
@@ -242,6 +243,7 @@ export class HttpServer {
       timezone: req.query.timezone,
       encoding: req.query.encoding,
       headers: headers,
+      apiKey: req.query.apiKey,
     };
 
     this.log.debug('Render request received', 'url', options.url);

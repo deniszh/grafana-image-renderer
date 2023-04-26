@@ -164,6 +164,15 @@ export class Browser {
       });
     }
 
+    if (options.apiKey) {
+      if (this.config.verboseLogging) {
+        this.log.debug('Setting Authorization Bearer for page', 'apiKey', options.apiKey);
+      }
+      await page.setExtraHTTPHeaders({
+        'Authorization': 'Bearer ' + options.apiKey,
+      });
+    }
+
     if (options.headers && Object.keys(options.headers).length > 0) {
       this.log.debug(`Setting extra HTTP headers for page`, 'headers', options.headers);
       await page.setExtraHTTPHeaders(options.headers as any);

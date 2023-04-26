@@ -13,6 +13,7 @@ export interface RenderOptions {
   timezone?: string;
   encoding?: string;
   headers?: HTTPHeaders;
+  apiKey?: string;
 }
 
 export interface ImageRenderOptions extends RenderOptions {
