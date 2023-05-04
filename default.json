@@ -23,7 +23,7 @@
   },
   "rendering": {
     "chromeBin": null,
-    "args": ["--no-sandbox", "--disable-gpu"],
+    "args": ["--no-sandbox", "--disable-gpu", "--disable-setuid-sandbox", "--disable-dev-shm-usage", "--disable-accelerated-2d-canvas" ],
     "ignoresHttpsErrors": false,
 
     "timezone": null,
@@ -38,7 +38,7 @@
     "headed": false,
 
     "mode": "default",
-    "emulateNetworkConditions": false,
+    "emulateNetworkConditions": true,
     "clustering": {
       "monitor": false,
       "mode": "browser",
@@ -46,8 +46,8 @@
       "timeout": 30
     },
 
-    "verboseLogging": false,
+    "verboseLogging": true,
     "dumpio": false,
-    "timingMetrics": false
+    "timingMetrics": true
   }
 }
