@@ -89,6 +89,7 @@ export class Browser {
 
     // Trigger full height snapshots with a negative height value
     if (options.height === -1) {
+      options.timeout = 0.1;
       options.fullPageImage = true;
       options.height = Math.floor(options.width * 0.75);
     }
@@ -349,10 +350,17 @@ export class Browser {
                */
               const panelCount = document.querySelectorAll('[data-panelId]').length;
               const totalPanelsRendered = document.querySelectorAll('.panel-content').length + document.querySelectorAll('.dashboard-row').length;
+              //if (this.config.verboseLogging) {
+              //  this.log.debug('Waiting for dashboard/panel to load', 'totalPanelsRendered', `${totalPanelsRendered}p`, 'panelCount', `${panelCount}p`);
+              //}
               return totalPanelsRendered === panelCount;
             }
 
             const panelCount = document.querySelectorAll('.panel').length || document.querySelectorAll('.panel-container').length;
+            const totalPanelsRendered = document.querySelectorAll('.panel-content').length + document.querySelectorAll('.dashboard-row').length;
+            //if (this.config.verboseLogging) {
+            //  this.log.debug('Waiting for dashboard/panel to load', 'totalPanelsRendered', `${totalPanelsRendered}p`, 'panelCount', `${panelCount}p`);
+            //}
             return (window as any).panelsRendered >= panelCount;
           },
           {
