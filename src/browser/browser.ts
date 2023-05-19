@@ -89,7 +89,6 @@ export class Browser {
 
     // Trigger full height snapshots with a negative height value
     if (options.height === -1) {
-      options.timeout = 0.1;
       options.fullPageImage = true;
       options.height = Math.floor(options.width * 0.75);
     }
